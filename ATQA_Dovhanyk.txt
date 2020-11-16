@@ -1,0 +1,16 @@
+How to generate different set of SSH keys ?
+
+Different set of SSH keys can be generated for different Githubs accounts on the same computer.
+
+We should follow the next steps:
+
+1. Check for SSH keys - $ ls -al ~/.ssh 
+2. Set up another ssh key - ssh-keygen-t rsa - b 4096- C "email" 
+3. If we already have a key, and want to make new key, then we use a different name for this key ( for example the previous key name:/.ssh/id_rsa ; the new one: /.ssh/work_rsa) and leave the password blank
+4. The new key is generated. And we check if the new SSH key is displayed among the list by typing ls -al ~/.ssh command in the terminal.
+5. Enter clip < ~/.ssh/work_rsa.pub command in order to copy the SSH key for the GIThub account.
+6. Go to GitHub account- Settings- SSH ans GPG keys and Press button "Add New".  
+7. Modify the ssh config file ( ~/.ssh/config) We are adjusting multiple ssh keys - by default the id_rsa.pub file is always used, we have to tell ssh to look different public key file depending on the service.
+   We prescribe which account, host, hostname, user are intended to which identity file.
+8. Then we clone our repo (git clone) and modify git config
+ 
